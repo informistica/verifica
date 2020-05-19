@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block contenuti %}
-    <h5  class="my-3" >Elenco giornalisti:</a></h5>
+   
+    <h5  class="my-3" >Elenco di tutti i giornalisti:</a></h5>
     <div class="my-3"></div>
     {% for giornalista in giornalisti %}
-        <p>{{ forloop.counter }}) {{ giornalista.nome }} {{ giornalista.cognome }}
+        <p>{{ forloop.counter }})  
+            <a href="{% url 'news:lista_articoli_giornalista' pk=giornalista.id %}">{{ giornalista.nome }} {{ giornalista.cognome }}</a>
         </p>
+        
         <hr>
     {% endfor %}
 </div>

@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 {% block contenuti %}
-    <h5  class="my-3" >Elenco articoli:</a></h5>
+    {% if giornalista %}
+    <h5  class="my-3" >Elenco degli articoli di {{ giornalista.nome }} {{ giornalista.cognome }}:</a></h5>
+    {% else %}
+    <h5  class="my-3" >Elenco di tutti gli articoli:</a></h5>
+    {% endif %}
+  
     <div class="my-3"></div>
     {% for articolo in articoli %}
         <p>{{ forloop.counter }})  {{ articolo.titolo }}<br>
             {{ articolo.contenuto }}
             <small>({{ articolo.giornalista }})</small> 
         </p>
+        
         <hr>
     {% endfor %}
 </div>
